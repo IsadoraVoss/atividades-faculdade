@@ -1,0 +1,129 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+
+/*Trabalho N1: Calculadora de frações
+Aluna: Isadora Voss Brugnera
+Sistemas de informação-primeira fase*/
+
+//Primeiro é necessário declarar funções e variáveis, antes de colocar no main.
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+
+int mdc1(int n, int d)
+{
+//Se n for 0 retorna o d e vice-versa
+    if(n==0)
+        return d;
+    if(d==0)
+        return n;
+//Se n for igual a d retorna n
+    if (n==d)
+        return n;
+//Se n for maior que d, subtrai um do outro até que retorna-se o valor que se encaixe em uma das situaçoes acima
+    if (n>d)
+        return mdc1(n-d, d);
+    return mdc1(n, d-n);
+}
+/*Exemplo 15, 10
+15-10=5
+10-5=5
+5-5=0
+retorna 5 esse é o mdc
+*/
+
+void soma(int n1,int d1,int n2,int d2)
+{
+    int num= n1*d2 + n2*d1;//soma
+    int den= d1*d2;
+    int divisor1= mdc1(num, den);//simplificando
+    int novo_num=num/divisor1;
+    int novo_den=den/divisor1;
+    printf("Fracao simplificada:%d/%d\n", novo_num, novo_den);
+}
+
+void subtracao(n1, d1, n2, d2)
+{
+    int num= n1*d2 - n2*d1;//subtracao
+    int den= d1*d2;
+    int divisor1 = mdc1(abs(num), abs(den));//simplificando//a funcao abs retorna o módulo-stdlib
+    int novo_num=num/divisor1;
+    int novo_den=den/divisor1;
+    if (den < 0)//Se um numero maior é subtraído de um menor aparece resultado negativo;
+    {
+        novo_num = -novo_num;
+        novo_den = -novo_den;
+    }
+    printf("Fracao simplificada:%d/%d\n", novo_num, novo_den);
+
+}
+void multiplicacao (n1, d1, n2, d2)
+{
+    int num= n1*n2;//multiplicacao
+    int den= d1*d2;
+    int divisor1= mdc1(num, den);//simplificando
+    int novo_num=num/divisor1;
+    int novo_den=den/divisor1;
+    printf("Fracao simplificada:%d/%d\n", novo_num, novo_den);
+}
+void divisao (n1, d1, n2, d2)
+{
+    int num= n1*d2;//divisao
+    int den= d1*n2;
+    int divisor1= mdc1(num, den);//simplificando
+    int novo_num=num/divisor1;
+    int novo_den=den/divisor1;
+    printf("Fracao simplificada:%d/%d\n", novo_num, novo_den);
+}
+
+
+int main()
+{
+    //variáveis utilizadas dentro do main;
+    int n1, d1, n2, d2;
+    int Selecione;
+    //Obtendo fracoes
+    printf("Calculadora de fracoes para loja\n");
+    printf("Primeira fracao:\n", n1, d1);
+    scanf("%d""%d", &n1, &d1);
+    printf("Segunda fracao:\n", n2, d2);
+    scanf("%d""%d", &n2, &d2);
+//Selecionar operacoes
+    do
+    {
+        printf("Selecione uma operacao:\n");
+        printf("1.Somar\n", soma);
+        printf("2.Subtrair\n", subtracao);
+        printf("3.Multiplicar\n", multiplicacao);
+        printf("4.Dividir\n", divisao);
+        printf("5.Fim\n");
+        scanf("%d", &Selecione);
+
+//Switch serve para condições, ou seja caso 1 é para somar;
+        switch (Selecione)
+        {
+
+        case 1:
+            soma(n1, d1, n2, d2);
+            break;
+        case 2:
+            subtracao(n1, d1, n2, d2);
+            break;
+        case 3:
+            multiplicacao(n1, d1, n2, d2);
+            break;
+        case 4:
+            divisao(n1, d1, n2, d2);
+            break;
+        case 5:
+            printf("Fim\n");
+            return 0;
+        }
+    }
+    while(Selecione!=5);
+//Enquanto Selecione for diferente de 5 continue fazendo"do"
+    return 0;
+}
+
