@@ -1,0 +1,18 @@
+#include <stdio.h>
+//O valor de x e de num é o mesmo, pois um é a cópia do outro, assim quando uma função é chamada dentro da outra eles acabam incrementando o valor uma da outra.
+void incrementar(int x)
+{
+    x= x+1;
+    printf("Dentro de uma função: x= %d\n", x);
+    
+}
+
+int main()
+{
+    int num =5;
+    printf("Antes da chamada da função: num =%d\n", num);
+    //chamando a função incrementar e passando o valor de num como a...
+    incrementar(num);
+    printf("Depois da chamada da função: num=%d\n", num);
+    return 0;
+}
