@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "time.h"
+
+int main()
+{
+    char c;
+    int numeroSecreto, tentativa;
+    
+    srand(time(NULL));
+    numeroSecreto = rand() % 20 + 1;
+    
+    do
+    {
+        printf("\n adivinhe o numero ( entre 1 e 20):");
+        scanf("%d", &tentativa);
+        scanf("%c",&c);
+    
+    
+    if(numeroSecreto<tentativa)
+    {
+        printf("\n O numero e menor");
+        
+    }
+    
+    else if(numeroSecreto>tentativa)
+    {
+        printf("\n O numero e maior");
+        
+    }
+    
+  } while (numeroSecreto != tentativa);
+  
+  printf("\n Acretou, o numero era:: %d", numeroSecreto);
+  printf("\n Pressione <Enter>para sair...");
+  
+  scanf("%c", &c);
+    
+    return 0;
+}
