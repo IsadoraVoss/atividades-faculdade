@@ -1,0 +1,18 @@
+#include <stdio.h>
+//função que recebe um parâmetro por referência e incrementa seu valor em 1 
+void incrementar(int *X)
+{
+    (*X)++;
+    printf("Dentro da funcao:*X=%d\n",*X);
+
+}
+
+int main()
+{
+    int num = 5;
+    printf("Antes da chamada da função: num=%d\n", num);
+    //Chamando a funcao incrementar e passando o endereço de num como argumento
+    incrementar(&num);
+    printf("Depois da chamada da funcao: num = %d\n", num);
+    return 0;
+}
