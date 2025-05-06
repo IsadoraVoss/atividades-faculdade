@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+//Questão 1 contar caracteres numa string
+int main()
+{
+ char texto [100];
+ int i = 0, contador =0;
+ 
+ printf("Digite uma palavra:");     //sizeof serve para ler o tamanho do texto em bytes
+ fgets(texto, sizeof(texto), stdin);//stdin serve para entrada, nesse caso se quer colocar no console
+ //contando caracteres até encontrar o numero de caracteres
+ while(texto[i] != '\0'){
+     contador++;
+     i++;
+ }
+   printf("O numero de caracteres da palavra e = %d\n", contador-1);//-1 é para ignorar o \n do fgets  
+   
+   return 0;
+}
