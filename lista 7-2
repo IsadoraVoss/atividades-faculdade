@@ -1,0 +1,28 @@
+#include <stdio.h>
+//questaao 2- contar numero de palavras de uma string
+int main()
+{
+    char texto[200];
+    int i = 0, palavras =0, em_palavra =0;
+    
+    printf("Digitar um frase:");
+    fgets(texto, sizeof(texto), stdin);
+    
+    while(texto[i] != '\0')
+    {
+        if((texto[i] != ' ') && (texto[i] != '\n') && (em_palavra == 0))
+        {
+            em_palavra = 1;
+            palavras ++;
+        }
+        else if(texto[i] == ' '|| texto[i] == '\n')
+        {
+            em_palavra = 0;
+            
+        }
+        i++;
+    }
+        printf("A quantidade de palavras : %d\n", palavras);
+        
+        return 0;
+    }
