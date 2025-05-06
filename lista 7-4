@@ -1,0 +1,25 @@
+#include <stdio.h>
+//Questao 4 contar quantas vezes uma letra aparece na string
+int main()
+{
+   char texto[100], letra;
+   int i= 0, contador=0;
+   
+   printf("Digite um texto:");
+   fgets(texto, sizeof (texto), stdin);
+   
+   printf("Qual letra você quer contar:", letra);
+   scanf("%c", &letra);
+   
+   while(texto[i] != '\0')
+   {
+    if(texto[i]==letra)
+    {
+        contador++;
+        
+    }
+    i++;
+   }
+   
+   printf("A quantidade de letras  da palavra é = %d",contador);
+}
