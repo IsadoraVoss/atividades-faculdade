@@ -1,0 +1,22 @@
+#include <stdio.h>
+//Questão 3- contar numero de vogaius de uma string
+int main()
+{
+    char texto [100];
+    int i = 0, vogais = 0;
+    
+    printf("Digite uma frase: ");
+    fgets(texto, sizeof(texto), stdin);
+    
+    while(texto[i] != '\0')
+    {
+        if(texto[i]== 'a'|| texto[i]=='e'||texto[i]=='i'|| texto[i]== 'o'|| texto[i]=='u'||
+        texto[i]=='A'|| texto[i]=='E'|| texto[i]=='I'|| texto[i]=='O'|| texto[i]=='U'){
+            vogais++;
+        }
+        i++;
+    }
+    printf("Quantidade de vogais: %d\n", vogais);
+    
+    return 0;
+}
