@@ -1,0 +1,45 @@
+#include <stdio.h>
+//questão 7: função que verifica se duas strings são iguais
+
+int compara(char texto1[], char texto2[])
+{
+    int i= 0;
+    while(texto1[i] != '\0' && texto2[i] != '\0')
+    {
+        if(texto1[i] != texto2[i])
+        {
+            return 0;
+        }
+        i++;
+    }
+    if(texto1[i] ==texto2 [i])
+    {
+        return 1;
+    }
+    else 
+    {
+        return 0;
+    }
+}
+
+int main()
+{
+    char TEXTO1[100];
+    char TEXTO2[100];
+    
+    printf("Digite uma palavra:");
+    fgets(TEXTO1, sizeof(TEXTO1), stdin);
+    printf("Digite outra palavra:");
+    fgets(TEXTO2, sizeof(TEXTO2), stdin);
+    
+    if(compara( TEXTO1, TEXTO2))
+    {
+         printf("As palavras são iguais!\n");
+    }
+    else
+    {
+        printf("As palavras são diferentes!\n");
+    }
+
+    return 0;
+}
