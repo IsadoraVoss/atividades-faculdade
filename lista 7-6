@@ -1,0 +1,21 @@
+#include <stdio.h>
+//questão 6- copiar uma string para outra
+int main()
+{
+    char original [100];
+    int i = 0, copiando = 0;
+    char cópia [100];
+    
+    printf("Digite uma frase:");
+    fgets(original, sizeof(original), stdin);
+    
+    while(original[i]!= '\0')
+    {
+        cópia[i] = original[i];
+        i++;
+    }
+    cópia[i] = '\0'; //finalizar a nova string
+    printf("Frsae original: %s", original);
+    printf("Frase cópia: %s", cópia);
+    return 0;
+}
