@@ -1,0 +1,25 @@
+#include <stdio.h>
+//questão 5: converter uma string para letra maiúscula.
+
+int main()
+{
+ char string [100];
+ int i = 0;
+ 
+ printf("Digite uma frase:");
+ fgets(string, sizeof(string), stdin);
+ 
+ while(string[i] != '\0')
+ {
+   if(string[i] >= 'a' && string[i] <= 'z')  
+   {
+       string[i] = string[i] - 32; //transforma em  letra maiuscula. 
+       
+   }
+   i++;
+ }
+ printf("Texto em maiusculo: %s", string);
+ return 0;
+}
+
+/* O -32 no código transforma letra minúscula em maiúscula, pois na tabela ASCII a diferença é essa, exemplo a letra 'a' = 97, já a letra 'A' = 65*/
