@@ -1,0 +1,69 @@
+/*Trabalho N2 de Algoritmos 1
+aluna: Isadora Voss Brugnera
+primeira fase*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <locale.h>
+
+#define PRODUTOS 200
+#define CLIENTES 50
+
+int random(int n)
+{
+return rand () % n;
+}
+
+int main()
+{
+    float precos[PRODUTOS];
+    int nprodutos, nclientes, i, p;
+    int compras[CLIENTES];
+    float total;
+
+    setlocale(LC_ALL,"Portuguese");
+
+//inicializa para sempre gerar numeros aleatórios
+    srand ((unsigned)time (NULL));
+
+//numero de produtos
+    nprodutos= random(PRODUTOS)+1;
+
+//preco de cada produto
+    for(i=0; i<nprodutos; i++)
+    {
+        p= 5+ random(96);
+        precos[i]= p;
+    }
+
+//numero de clientes
+    nclientes = random(CLIENTES)+1;
+
+//cada cliente compra 1 produto
+    for(i=0; i<nclientes; i++)
+    {
+       compras[i] = random(nprodutos);
+    }
+
+//tabela
+    printf("Simulação para: \n %d produtos \n %d clientes", nprodutos, nclientes);
+    printf("\n--------------------------------------------------------------------");
+    printf("\n Cliente \t Produto \t Preco");
+    printf("\n--------------------------------------------------------------------");
+
+//total
+    for(i=0; i< nclientes; i++)
+    {
+        total += precos [compras[i]]; //cliente "i" compra um produto "compras[i]" e cada um tem um preco;
+        printf("\n%7d \t%7d \t%.2f", i, compras[i], precos[compras[i]]); //o 7 é o numero de caracteres para formatar
+    }
+    printf("\n--------------------------------------------------------------------");
+    printf("\nTOTAL:                         %.2f", total);
+
+return 0;
+
+}
+
+//precos[1] = 84; diz que o preco do produto 1 é 84
+//compras[2] = 3; diz que o cliente 2 comprou o produto 3;
