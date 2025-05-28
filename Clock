@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <time.h>
+void soma_pares(int vetor[], int tamanho)
+{
+    int soma = 0; // Variável para acumular a soma dos pares
+    int i = 0;// Percorre o vetor
+    while(i<tamanho)
+    {
+        if (vetor[i] % 2 == 0)   // Verifica se o número é par
+        {
+            soma += vetor[i]; // Soma ao acumulador
+        }
+        i++;
+}
+
+
+
+
+    printf("Soma dos números pares: %d\n", soma); // Exibe o resultado
+}
+
+int main()
+{
+    clock_t inicio, fim;
+    double tempo_gasto;
+
+    int numeros[5] = {2, 7, 10, 3, 8}; // Vetor de exemplo com 5 números
+    inicio = clock();
+    soma_pares(numeros, 5); // Chamada da função passando o vetor
+    fim = clock();
+
+      tempo_gasto=((double)(fim- inicio)) / CLOCKS_PER_SEC;
+      printf("Tempo de acesso sequencial: %f segundos \n" ,tempo_gasto);
+    return 0; // Fim do programa
+}
